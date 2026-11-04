@@ -1,0 +1,215 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ECDEC8;
+  --foreground: #1E1E1E;
+  
+  /* Official Fursat Brand Colors */
+  --fursat-terracotta: #CF4B37;
+  --fursat-terracotta-dark: #B53F2D;
+  --fursat-green: #2E4E21;
+  --fursat-green-dark: #233D19;
+  --fursat-sand: #ECDEC8;
+  --fursat-camel: #B9946B;
+  --fursat-charcoal: #1E1E1E;
+  --fursat-muted: #4A4A4A;
+  --fursat-sand-alt: #E5D5C1;
+  --fursat-black: #0D0D0D;
+  --fursat-white: #FFFFFF;
+  --fursat-hairline: #EFE6D8;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: #ECDEC8;
+  color: #1E1E1E;
+}
+
+body {
+  background-color: #ECDEC8;
+  color: #1E1E1E;
+  overflow-x: hidden;
+  font-family: var(--font-poppins), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #ECDEC8;
+}
+::-webkit-scrollbar-thumb {
+  background: #B9946B;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #CF4B37;
+}
+
+/* Film Grain Overlay */
+.film-grain {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 999;
+  opacity: 0.015;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* ========================================================================= */
+/* OFFICIAL FURSAT UI BUTTON & COMPONENT SYSTEM                             */
+/* ========================================================================= */
+
+/* Primary Button: Terracotta Red #CF4B37 -> Hover #B53F2D */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #CF4B37;
+  color: #FFFFFF;
+  font-family: var(--font-poppins), sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: 0.02em;
+  padding: 12px 28px;
+  border-radius: 9999px;
+  border: none;
+  transition: all 0.25s ease-in-out;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(207, 75, 55, 0.25);
+}
+
+.btn-primary:hover, .btn-primary:active {
+  background-color: #B53F2D;
+  box-shadow: 0 6px 20px rgba(181, 63, 45, 0.35);
+  transform: translateY(-1px);
+}
+
+/* Secondary Button: Transparent + 2px #2E4E21 border -> Hover Fill #2E4E21 */
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  color: #2E4E21;
+  font-family: var(--font-poppins), sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: 0.02em;
+  padding: 10px 26px;
+  border-radius: 9999px;
+  border: 2px solid #2E4E21;
+  transition: all 0.25s ease-in-out;
+  cursor: pointer;
+}
+
+.btn-secondary:hover, .btn-secondary:active {
+  background-color: #2E4E21;
+  color: #FFFFFF;
+  transform: translateY(-1px);
+}
+
+/* Button on Dark Backgrounds: Warm Sand #ECDEC8 -> Hover #FFFFFF */
+.btn-on-dark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ECDEC8;
+  color: #1E1E1E;
+  font-family: var(--font-poppins), sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: 0.02em;
+  padding: 12px 28px;
+  border-radius: 9999px;
+  border: none;
+  transition: all 0.25s ease-in-out;
+  cursor: pointer;
+}
+
+.btn-on-dark:hover {
+  background-color: #FFFFFF;
+  transform: translateY(-1px);
+}
+
+/* Official Fursat Label / Tag: Forest Green #2E4E21 + White text */
+.fursat-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: #2E4E21;
+  color: #FFFFFF;
+  font-family: var(--font-poppins), sans-serif;
+  font-weight: 500;
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 9999px;
+}
+
+/* Official Fursat Offer Badge: Terracotta #CF4B37 + White text */
+.fursat-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background-color: #CF4B37;
+  color: #FFFFFF;
+  font-family: var(--font-poppins), sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+
+/* Official Fursat Card Surface */
+.fursat-card {
+  background-color: #E5D5C1;
+  color: #1E1E1E;
+  border: 1px solid #EFE6D8;
+  border-radius: 16px;
+}
+
+.fursat-card-white {
+  background-color: #FFFFFF;
+  color: #1E1E1E;
+  border: 1px solid #EFE6D8;
+  border-radius: 16px;
+}
+
+/* Scallop Pattern Divider (Terracotta #CF4B37 on Camel Tan #B9946B) */
+.scallop-divider {
+  width: 100%;
+  height: 14px;
+  background-image: radial-gradient(circle at 10px 0, #CF4B37 8px, transparent 9px);
+  background-size: 20px 14px;
+  background-repeat: repeat-x;
+  background-color: #B9946B;
+}
+
+/* Hide native cursor on fine pointer devices */
+@media (hover: hover) and (pointer: fine) {
+  body, a, button, [role="button"] {
+    cursor: none;
+  }
+  input, textarea, select {
+    cursor: text;
+  }
+}
